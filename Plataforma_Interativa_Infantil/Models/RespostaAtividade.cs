@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System;
+using System.Collections.Generic;
+using backend.ViewModels; 
 namespace backend.Models;
 
 [Table("respostas_atividades")]
@@ -22,4 +24,7 @@ public class RespostaAtividade
 
     public Crianca Crianca { get; set; } = null!;
     public Atividade Atividade { get; set; } = null!;
+    
+        [NotMapped]
+        public List<HistoricoTentativaViewModel> Historico { get; set; } = new();
 }
